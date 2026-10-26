@@ -3,8 +3,8 @@
 A production-style, zero-dependency task manager built with vanilla HTML, CSS and JavaScript.
 It demonstrates simulated authentication, an interactive catalog, full CRUD, and persistent state.
 
-**🔗 Live demo:** `https://YOUR-APP.vercel.app` *(replace after deploying)*
-**📦 Repository:** `https://github.com/YOUR-USERNAME/taskflow`
+**🔗 Live demo:** `https://capstoneproject-psi-lilac.vercel.app`
+**📦 Repository:** `https://github.com/chezhiyanvk18-bit/Capstone-Project`
 
 > Demo login: click **Try demo account**, or use `demo@taskflow.app` / `demo123`.
 
