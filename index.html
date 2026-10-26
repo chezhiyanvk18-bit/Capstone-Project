@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TaskFlow – SaaS Task Manager</title>
+<meta name="description" content="TaskFlow: a lightweight task manager with simulated auth, CRUD and persistent state.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- AUTH VIEW -->
+<main id="auth-view" class="auth hidden">
+  <form id="auth-form" class="card auth-card" autocomplete="on">
+    <h1>✅ TaskFlow</h1>
+    <p id="auth-sub" class="muted">Sign in to manage your tasks</p>
+    <label id="name-row" class="hidden">Name<input id="auth-name" placeholder="Ada Lovelace"></label>
+    <label>Email<input id="auth-email" type="email" required placeholder="you@example.com"></label>
+    <label>Password<input id="auth-pass" type="password" required minlength="6" placeholder="min 6 characters"></label>
+    <p id="auth-error" class="error" role="alert"></p>
+    <button class="btn primary" type="submit" id="auth-submit">Sign in</button>
+    <button class="btn ghost" type="button" id="auth-toggle">Need an account? Register</button>
+    <button class="btn ghost" type="button" id="demo-btn">Try demo account</button>
+  </form>
+</main>
+
+<!-- APP VIEW -->
+<div id="app-view" class="hidden">
+  <header class="topbar">
+    <strong>✅ TaskFlow</strong>
+    <div class="spacer"></div>
+    <span id="user-label" class="muted"></span>
+    <button class="btn ghost" id="theme-btn" title="Toggle theme">🌓</button>
+    <button class="btn ghost" id="export-btn">Export</button>
+    <button class="btn ghost" id="logout-btn">Log out</button>
+  </header>
+
+  <section class="container">
+    <div class="stats" id="stats"></div>
+
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search tasks, tags…">
+      <select id="f-status"><option value="">All status</option><option value="todo">To do</option><option value="doing">In progress</option><option value="done">Done</option></select>
+      <select id="f-priority"><option value="">All priority</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select>
+      <select id="sort"><option value="created">Newest</option><option value="due">Due date</option><option value="priority">Priority</option><option value="title">Title</option></select>
+      <button class="btn primary" id="add-btn">+ New task</button>
+    </div>
+
+    <div id="catalog" class="grid"></div>
+    <p id="empty" class="muted center hidden">No tasks match. Create one!</p>
+  </section>
+</div>
+
+<!-- TASK MODAL -->
+<dialog id="modal">
+  <form id="task-form" method="dialog" class="card">
+    <h2 id="modal-title">New task</h2>
+    <label>Title<input id="t-title" required maxlength="80"></label>
+    <label>Description<textarea id="t-desc" rows="3"></textarea></label>
+    <div class="row">
+      <label>Priority<select id="t-priority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+      <label>Status<select id="t-status"><option value="todo">To do</option><option value="doing">In progress</option><option value="done">Done</option></select></label>
+      <label>Due<input id="t-due" type="date"></label>
+    </div>
+    <label>Tags (comma separated)<input id="t-tags" placeholder="work, urgent"></label>
+    <div class="row end">
+      <button class="btn ghost" type="button" id="cancel-btn">Cancel</button>
+      <button class="btn primary" type="submit">Save</button>
+    </div>
+  </form>
+</dialog>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
